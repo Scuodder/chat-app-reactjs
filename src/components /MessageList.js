@@ -1,5 +1,5 @@
 import React from 'react' ;
-
+import Message from './Message.js'
 
 
 class MessageList extends React.Component {
@@ -9,10 +9,7 @@ class MessageList extends React.Component {
                 {
                     this.props.messages.map( (element, index) => {
                         return (
-                            <div className="message" key={index}>
-                                <div className="message-username">{element.senderId}</div>
-                                <div className="message-text">{element.text}</div>
-                            </div>
+                            <Message key = {index} username={element.senderId} text = {element.text} />
                         )
                     })
                 }

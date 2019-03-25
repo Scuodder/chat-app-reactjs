@@ -1,7 +1,7 @@
 import React from 'react';
 import Chatkit from '@pusher/chatkit-client'; 
 import { tokenUrl, instanceLocator } from './config.js' ;
-import MessageList from './components/MessageList'
+import MessageList from './components/MessageList.js'
 import './App.css';
 
 class App extends React.Component{
