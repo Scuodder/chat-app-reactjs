@@ -1,6 +1,7 @@
 import React from 'react';
 import Chatkit from '@pusher/chatkit-client'; 
 import { tokenUrl, instanceLocator } from './config.js' ;
+import MessageList from './components/MessageList'
 import './App.css';
 
 class App extends React.Component{
@@ -47,7 +48,7 @@ class App extends React.Component{
       console.log(this.state.messages)
       return (
           <div className ="app">
-
+            <MessageList messages = { this.state.messages }/>
           </div>
       )
   }
