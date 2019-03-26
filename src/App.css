@@ -1,9 +1,10 @@
 :root {
-  --main-color: #63a05e;
-  --secondary-color: rgb(216, 236, 103);
-  --main-text-color: #494e4b;
-  --secondary-text-color: #d4d8db;
-  --send-message-form: rgb(235, 216, 110);
+  --login-window: #1c4666;
+  --main-color: #123155;
+  --secondary-color: rgb(176, 212, 233);
+  --main-text-color: #1d2327;
+  --secondary-text-color: #dde6ec;
+  --send-message-form: rgb(46, 85, 131);
 }
 
 html, body {
@@ -137,7 +138,7 @@ html, body {
 }
 .message .message-text {
   background: var(--main-color);
-  color: var(--secondary-color);
+  color: var(--secondary-text-color);
   display: inline;
   padding: 4px 8px;
   border-radius: 8px;
@@ -173,7 +174,7 @@ html, body {
   border-style: none;
   background: var(--send-message-form);
   font-weight: 200;
-
+  color: var(--secondary-text-color);
 }
 
 .send-message-form input:focus {
@@ -181,10 +182,40 @@ html, body {
 }
 
 .send-message-form input::placeholder {
-  color: var(--main-text-color);
+  color: var(--secondary-text-color);
 }
 
 .help-text {
   position: absolute;
   top: 10px;
+}
+
+.login-container {
+  display: flex ;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  background: var(--login-window)
+}
+
+.login-form {
+  width: 60%;
+}
+
+.login-form input {
+  border-style: none ;
+  background:  #60a4d8 ;
+  width: 100%;
+  padding: 15px 10px ;
+  font-size : 1.5em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #d5e8f3;
+}
+.login-form input::placeholder {
+  color : #d5e8f3
+}
+
+.login-form input:focus {
+  outline-width: 0;
 }

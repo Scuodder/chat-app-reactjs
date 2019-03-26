@@ -23,12 +23,12 @@ class LoginForm extends React.Component {
 
     render () {
         return (
-            <div>
+            <div className="login-form">
                 <form onSubmit={this.handleSubmit}>
                     <input 
                         type="text"
                         value={this.state.input}
-                        placeholder = "Enter Login username and hit Enter"
+                        placeholder = "Enter username and hit Enter"
                         onChange = {this.handleChange}
                     >
                     </input>

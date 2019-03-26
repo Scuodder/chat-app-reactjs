@@ -110,7 +110,7 @@ class App extends React.Component{
 
       if (!this.state.isLoggedIn) {
         return (
-          <div className="app">
+          <div className="login-container">
             <LoginForm login={this.connection} />
           </div>
         )
