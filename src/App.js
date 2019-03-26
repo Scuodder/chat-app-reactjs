@@ -5,6 +5,7 @@ import MessageList from './MessageList.js'
 import NewRoomForm from './NewRoomForm.js'
 import RoomList from './RoomList.js'
 import SendMessageForm from './SendMessageForm.js'
+import LoginForm from './LoginForm.js'
 import './App.css';
 
 class App extends React.Component{
@@ -15,35 +16,43 @@ class App extends React.Component{
       messages: [] ,
       joinableRooms : [],
       joinedRooms : [] ,
-      roomId : null
+      roomId : null,
+      // LoginName : '',
+      isLoggedIn :false
+      
     }
+  
+    this.connection = this.connection.bind(this); 
     this.sendMessage = this.sendMessage.bind(this) 
     this.subscribeToRoom = this.subscribeToRoom.bind(this) 
     this.getRooms = this.getRooms.bind(this)
     this.createRoom = this.createRoom.bind(this)
   }
 
-  componentDidMount() {
-      const chatManager = new Chatkit.ChatManager({
-          instanceLocator, 
-          userId: "Sudarshan",
-          tokenProvider: new Chatkit.TokenProvider({
-              url: tokenUrl 
-          }) 
+
+
+
+  connection(userId) {
+    const chatManager = new Chatkit.ChatManager({
+      instanceLocator, 
+      userId: userId,
+      tokenProvider: new Chatkit.TokenProvider({
+          url: tokenUrl 
       }) 
+    }) 
 
-      chatManager.connect()
-          .then((currentUser) => {
-              this.currentUser = currentUser 
-              this.getRooms()
-                        
+    chatManager.connect()
+      .then((currentUser) => {
+          this.currentUser = currentUser 
+          this.getRooms()
+          this.setState({
+            isLoggedIn : true 
           })
-          .catch((err) => {
-            console.log(err) ;
-          })
-
- 
-
+                    
+      })
+      .catch((err) => {
+        console.log(err) ;
+    })
   }
 
   sendMessage(text) {
@@ -98,6 +107,14 @@ class App extends React.Component{
   }
 
   render() {
+
+      if (!this.state.isLoggedIn) {
+        return (
+          <div className="app">
+            <LoginForm login={this.connection} />
+          </div>
+        )
+      }
 
       return (
           <div className ="app">
