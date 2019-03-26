@@ -107,7 +107,7 @@ class App extends React.Component{
   }
 
   render() {
-
+      // console.log(this.state.isLoggedIn)
       if (!this.state.isLoggedIn) {
         return (
           <div className="login-container">
